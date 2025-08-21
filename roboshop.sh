@@ -6,7 +6,7 @@ INSTANCES=("mongodb" "redis" "mysql" "rabitmq" "catalogue" "shipping" "cart" "us
 ZONE_ID="Z10186462WRSH5GYHYLSN" #(in route53 we have zone id)
 DOMAIN_NAME="banasurekha.shop"
 
-for instances in ${INSTANCES[@]}
+for instance in ${INSTANCES[@]}
 do
 
    INSTANCE_ID=$(aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro  --security-group-ids sg-0900091d833290dd7 --tag-specifations "ResourceType=instance,
