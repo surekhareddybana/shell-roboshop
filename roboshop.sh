@@ -1,6 +1,6 @@
 #!\bin\bash
 
-AMI_id="ami-09c813fb71547fc4f"
+AMI_ID="ami-09c813fb71547fc4f"
 SG_ID="sg-0900091d833290dd7"
 INSTANCES=("mongodb" "redis" "mysql" "rabitmq" "catalogue" "shipping" "cart" "user" "payment" "dispatch" "frontend")
 ZONE_ID="Z10186462WRSH5GYHYLSN" #(in route53 we have zone id)
@@ -13,9 +13,9 @@ do
     Tags=[{key=Name, valiue=Test}]" --query "Instances[0].InstanceId" --output text)
    if [ $instance != "frontend" ]
    then
-   IP=$(aws ec2 describe-instances  --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PrivateIpAddress")  --output text
+      IP=$(aws ec2 describe-instances  --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PrivateIpAddress")  --output text
 else
-IP=$(aws ec2 describe-instances  --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PublicIpAddress")  --output text
+      IP=$(aws ec2 describe-instances  --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PublicIpAddress")  --output text
 fi
 echo "$instance IP address: $IP"
 done
