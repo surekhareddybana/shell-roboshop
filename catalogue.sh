@@ -50,9 +50,9 @@ then
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
 VALIDATE $? "creating roboshop user"
 else 
-echo  -e systemuser roboshop already created $Y skipping $N"
+echo  -e "systemuser roboshop already created $Y skipping $N"
 
-mkdir /app
+mkdir -p /app
 VALIDATE $? "creating app directory"
 
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
