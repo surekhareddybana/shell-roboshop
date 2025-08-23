@@ -59,23 +59,23 @@ curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue
 VALIDATE $? "downloading the catalogue"
 
 cd /app 
-unzip /tmp/catalogue.zip &>>LOG_FILE
+unzip /tmp/catalogue.zip &>>$LOG_FILE
 VALIDATE $? "moving to app directory and unzip the catalogue"
 
-npm install &>>LOG_FILE
+npm install &>>$LOG_FILE
 VALIDATE $? "installing the dependencies"
 
 cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "copiying the catalogue service"
 
-systemctl daemon-reload &>>LOG_FILE
-systemctl enable catalogue  &>>LOG_FILE
+systemctl daemon-reload &>>$LOG_FILE
+systemctl enable catalogue  &>>$LOG_FILE
 systemctl start catalogue
 VALIDATE $? "starting catalogue"
 
 
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
-dnf install mongodb-mongosh -y &>>LOG_FILE
+dnf install mongodb-mongosh -y &>>$LOG_FILE
 VALIDATE $? "installing mongodb client"
 
 mongosh --host mongodb.banasurekha.shop </app/db/master-data.js &>>$LOG_FILE
