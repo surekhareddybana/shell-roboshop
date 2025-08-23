@@ -1,10 +1,10 @@
-#!\bin\bash
+#!/bin/bash
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
-Y="\e[33"
+Y="\e[33m"
 N="\e[0m"
-LOGS_FOLDER="var/log/roboshop-logs"
+LOGS_FOLDER="/var/log/roboshop-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 SCRIPT_DIR=$PWD
@@ -34,13 +34,13 @@ exit 1
 fi
 }
 
-dnf module disable nodejs -y &>>LOG_FILE
+dnf module disable nodejs -y &>>$LOG_FILE
 VALIDATE $? "disabling default nodejs"
 
-dnf module enable nodejs:20 -y  &>>LOG_FILE
+dnf module enable nodejs:20 -y  &>>$LOG_FILE
 VALIDATE $? "enabling nodejs"
 
-dnf install nodejs -y &>>LOG_FILE
+dnf install nodejs -y &>>$LOG_FILE
 VALIDATE $? "installing nodejs"
 
 id roboshop
@@ -51,6 +51,7 @@ useradd --system --home /app --shell /sbin/nologin --comment "roboshop system us
 VALIDATE $? "creating roboshop user"
 else 
 echo  -e "systemuser roboshop already created $Y skipping $N"
+fi
 
 mkdir -p /app
 VALIDATE $? "creating app directory"
