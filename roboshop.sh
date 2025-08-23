@@ -31,6 +31,7 @@ echo "$instance IP address: $IP"
           "ResourceRecords": [{
             "Value": "'$IP'"
             }]
+            }]
                            
  }
 
