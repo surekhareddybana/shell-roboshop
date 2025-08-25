@@ -10,7 +10,7 @@ DOMAIN_NAME="banasurekha.shop"
 for instance in $@
 do
 
-   INSTANCE_ID=$(aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro  --security-group-ids sg-0900091d833290dd7 --tag-specifations "ResourceType=instance,Tags=[{Key=Name, Value=$instance}]" --query "Instances[0].InstanceId" --output text)
+   INSTANCE_ID=$(aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro  --security-group-ids sg-0900091d833290dd7 --tag-specifations "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query "Instances[0].InstanceId" --output text)
    if [ $instance != "frontend" ]
    then
  
