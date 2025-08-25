@@ -27,7 +27,7 @@ echo "$instance IP address: $IP"
  --hosted-zone-id  $ZONE_ID \ 
  --change-batch '
  {
-     "Comment": "CREATE/DELETE/UPDATE"
+     "Comment": "CREATE/DELETE/UPDATE".
        "Changes":[{
        "Action": "UPSERT",
        "ResourceRecordSet": {
