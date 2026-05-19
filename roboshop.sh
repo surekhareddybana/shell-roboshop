@@ -5,9 +5,9 @@
 # -------------------------------
 
 AMI_ID="ami-0220d79f3f480ecf5"
-SG_ID="sg-0900091d833290dd7"
+SG_ID="sg-00953dfcb5786f057"
 ALL_INSTANCES=("mongodb" "redis" "mysql" "rabitmq" "catalogue" "shipping" "cart" "user" "payment" "dispatch" "frontend")
-ZONE_ID="Z10186462WRSH5GYHYLSN" #(in route53 we have zone id)
+ZONE_ID="Z09057841KR1D0QHRZIEJ" #(in route53 we have zone id)
 DOMAIN_NAME="banasurekha.shop"
 
 # -------------------------------
