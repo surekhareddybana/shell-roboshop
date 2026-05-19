@@ -4,7 +4,7 @@
 # Configuration
 # -------------------------------
 
-AMI_ID="ami-09c813fb71547fc4f"
+AMI_ID="ami-0220d79f3f480ecf5"
 SG_ID="sg-0900091d833290dd7"
 ALL_INSTANCES=("mongodb" "redis" "mysql" "rabitmq" "catalogue" "shipping" "cart" "user" "payment" "dispatch" "frontend")
 ZONE_ID="Z10186462WRSH5GYHYLSN" #(in route53 we have zone id)
